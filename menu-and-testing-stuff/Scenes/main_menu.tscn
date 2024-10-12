@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwwgit2k6ebov"]
+
+[ext_resource type="Script" path="res://Objects/main_menu.gd" id="1_2dlpw"]
+[ext_resource type="FontFile" uid="uid://b7m7ohe88hnja" path="res://Resources/PixeloidSans-mLxMm.ttf" id="2_fjq0k"]
+[ext_resource type="Texture2D" uid="uid://di20jmyi0lcmj" path="res://Resources/1000_F_853743899_f2LM6skVFaKEYCMrIM2kafpZtyYHPiKQ.jpg" id="2_wadjn"]
+[ext_resource type="Theme" uid="uid://djb37206crxlf" path="res://Resources/theme.tres" id="2_yw2ql"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = 213.0
+offset_right = -68.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2dlpw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -212.0
+offset_right = 1224.0
+offset_bottom = 433.0
+texture = ExtResource("2_wadjn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -157.0
+offset_right = -91.0
+offset_bottom = -41.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2.01816, 2.01816)
+
+[node name="Start Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit Button")
+theme = ExtResource("2_yw2ql")
+theme_override_fonts/font = ExtResource("2_fjq0k")
+theme_override_font_sizes/font_size = 16
+text = "New Game"
+
+[node name="Load Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_yw2ql")
+theme_override_fonts/font = ExtResource("2_fjq0k")
+theme_override_font_sizes/font_size = 16
+text = "Load"
+
+[node name="Options Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_yw2ql")
+theme_override_fonts/font = ExtResource("2_fjq0k")
+theme_override_font_sizes/font_size = 16
+text = "Options"
+
+[node name="Bestiary Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_yw2ql")
+theme_override_fonts/font = ExtResource("2_fjq0k")
+theme_override_font_sizes/font_size = 16
+text = "Bestiary"
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start Button")
+theme = ExtResource("2_yw2ql")
+theme_override_fonts/font = ExtResource("2_fjq0k")
+theme_override_font_sizes/font_size = 16
+text = "Quit
+"
+
+[connection signal="pressed" from="VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load Button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bestiary Button" to="." method="_on_bestiary_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
